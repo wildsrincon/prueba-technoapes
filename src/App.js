@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import comicService from './api/comic/comicService';
+import params from './api/client/paramConfig';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    params.append('limit', 30);
+    comicService('comics', params)
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Prueba technoApes</h1>
     </div>
   );
 }
