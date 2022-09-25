@@ -31,22 +31,24 @@ export const CardList = () => {
 
   return (
     <>
-      <Box 
-        sx={{ 
-          flexGrow: 1
+      <Box
+        sx={{
+          flexGrow: 1,
         }}
       >
         <Grid
           container
-          spacing={{ xs: 2, md: 3 }}
+          // spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 1, sm: 8, md: 12 }}
           sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}
         >
-          {dataComic.map((comic, index) => (
-            <div key={`key-${index}`}>
-              <CardComic comic={comic} />
-            </div>
-          ))}
+          <Grid item xs={12} sm={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            {dataComic.map((comic, index) => (
+              <div key={`key-${index}`}>
+                <CardComic comic={comic} />
+              </div>
+            ))}
+          </Grid>
         </Grid>
       </Box>
       <AppPagination />
