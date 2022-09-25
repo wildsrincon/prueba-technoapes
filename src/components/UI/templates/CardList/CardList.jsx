@@ -4,6 +4,9 @@ import params from '../../../../api/client/paramConfig';
 import AppPagination from '../../organisms/Pagination/AppPagination';
 import { CardComic } from '../../molecules/Card/CardComic';
 
+// Imports MUI
+import { Box, Grid } from '@mui/material';
+
 export const CardList = () => {
   const [dataComic, setDataComic] = useState([]);
   const [page, setPage] = useState(0);
@@ -27,15 +30,26 @@ export const CardList = () => {
   }, []);
 
   return (
-    <div>
-      <div className="grid">
-        {dataComic.map((comic, index) => (
-          <div className="col-12 md:col-6 lg:col-4">
-            <CardComic key={`key-${index}`}>{comic.title}</CardComic>
-          </div>
-        ))}
-      </div>
+    <>
+      <Box 
+        sx={{ 
+          flexGrow: 1
+        }}
+      >
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 1, sm: 8, md: 12 }}
+          sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}
+        >
+          {dataComic.map((comic, index) => (
+            <div key={`key-${index}`}>
+              <CardComic comic={comic} />
+            </div>
+          ))}
+        </Grid>
+      </Box>
       <AppPagination />
-    </div>
+    </>
   );
 };

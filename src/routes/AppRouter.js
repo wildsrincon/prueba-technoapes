@@ -40,7 +40,7 @@ const AppRouter = () => {
       )}
       <BrowserRouter>
         <Routes>
-          <Route path="/comics" element={HomePage}/>
+          <Route path="/" element={<HomePage />}/>
           <Route path="/comics/:id" element={<ComicDetail />} />
           <Route path="*" element={<Four0Four />} />
         </Routes>
