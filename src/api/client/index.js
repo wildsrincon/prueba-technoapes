@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const httpRequest = axios.create({
   baseURL: 'https://gateway.marvel.com:443/v1/public/',
   timeout: 5000,
