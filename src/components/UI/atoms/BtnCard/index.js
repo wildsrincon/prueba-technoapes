@@ -1,0 +1,1 @@
+export { BtnCard } from './BtnCard';
