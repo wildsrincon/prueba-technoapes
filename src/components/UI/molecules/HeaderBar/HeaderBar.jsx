@@ -20,6 +20,7 @@ import ChevronRightIcon from '@mui/icons-material//ChevronRight';
 import PersonIcon from '@mui/icons-material/Person';
 import { makeStyles } from '@mui/styles';
 import { Brand } from '../../atoms/Brand/Brand';
+import { ImportantDevices } from '@mui/icons-material';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -137,7 +138,17 @@ export const HeaderBar = (props) => {
               </Box>
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <IconButton onClick={toggleDrawer}>
+              <IconButton
+                onClick={toggleDrawer}
+                sx={{ 
+                  backgroundColor: '#fff', 
+                  color: '#202020',
+                  "&:hover": {
+                    color: 'white',
+                    backgroundColor: '#f0141e'
+                  }, 
+                }}
+              >
                 <MenuIcon />
               </IconButton>
             </Box>
@@ -153,7 +164,7 @@ export const HeaderBar = (props) => {
       >
         <Box>
           <IconButton onClick={toggleDrawer}>
-            <ChevronRightIcon sx={{ color: 'white' }} />
+            <ChevronRightIcon />
           </IconButton>
         </Box>
         <Divider />
