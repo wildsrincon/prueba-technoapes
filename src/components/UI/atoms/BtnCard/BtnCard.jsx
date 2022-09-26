@@ -4,10 +4,11 @@ import {
 } from '@mui/material';
 
 export const BtnCard = () => {
+  
   return (
     <>
       <CardActions>
-        <Button size="small">Share</Button>
+        <Button sx={{ backgroundColor: '#f0141e'}} variant="contained">View Details</Button>
       </CardActions>
     </>
   );

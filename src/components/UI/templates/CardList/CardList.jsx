@@ -6,8 +6,17 @@ import { CardComic } from '../../molecules/Card/CardComic';
 
 // Imports MUI
 import { Box, Grid } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+  gridContainer: {
+    paddingLeft: '40px',
+    paddingRight: '40px',
+  },
+});
 
 export const CardList = () => {
+  const classes = useStyles();
   const [dataComic, setDataComic] = useState([]);
   const [page, setPage] = useState(0);
   // const [totalRecords, setTotalRecords] = useState(0);
@@ -34,22 +43,19 @@ export const CardList = () => {
       <Box
         sx={{
           flexGrow: 1,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          marginBottom: '50px',
         }}
       >
-        <Grid
-          container
-          // spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 1, sm: 8, md: 12 }}
-          sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}
-        >
-          <Grid item xs={12} sm={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            {dataComic.map((comic, index) => (
-              <div key={`key-${index}`}>
-                <CardComic comic={comic} />
-              </div>
-            ))}
-          </Grid>
-        </Grid>
+        {dataComic.map((comic, index) => {
+          return (
+            <div key={`key-${index}`}>
+              <CardComic comic={comic} />
+            </div>
+          );
+        })}
       </Box>
       <AppPagination />
     </>

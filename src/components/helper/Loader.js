@@ -49,7 +49,7 @@ const Loader = () => {
         cy="50"
         r="0"
         fill="none"
-        stroke="#2d8254"
+        stroke="#202020"
         strokeWidth="2"
       >
         <animate

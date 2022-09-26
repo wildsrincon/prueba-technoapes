@@ -9,7 +9,7 @@ export const CardImg = ({ imageSource }) => {
         component="img"
         height="140"
         image={imageUrl}
-        alt="green iguana"
+        sx={{ objectFit: 'contain' }}
       />
     </>
   );

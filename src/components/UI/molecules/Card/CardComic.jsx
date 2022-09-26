@@ -1,11 +1,5 @@
 // Imports MUI
-import {
-  Box,
-  Card,
-  CardContent,
-  Grid
-} from '@mui/material';
-
+import { Box, Card, CardContent, Grid } from '@mui/material';
 
 // Imports Atomic Design
 import { BtnCard } from '../../atoms/BtnCard/BtnCard';
@@ -15,33 +9,51 @@ import { CardTitle } from '../../atoms/CardTitle/CardTitle';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
+  root: {
+    minWidth: 200,
+  },
   card: {
     height: '100%',
     display: 'flex',
     flexDirection: 'Column',
     justifyContent: 'space-between',
     marginLeft: 3,
-    width: '80vw'
+    width: '250px',
+  },
+  img: {
+    // objectFit: 'contain',
   },
 });
 
-
-export const CardComic = ({comic}) => {
+export const CardComic = ({ comic }) => {
   const classes = useStyles();
 
   return (
-    <Box sx={{ flexGrow: 1, marginTop: '50px' }}>
-      <Card
-        elevation={3}
-        className={classes.card}
+    <Box sx={{ flexGrow: 1, margin: '30px', maxWidth: '250px' }}>
+      <Grid
+        container
+        spacing={4}
+        className={classes.gridContainer}
+        justify="center"
       >
-        <CardContent>
-          <CardTitle title={comic.title} />
-          <CardImg imageSource={comic.thumbnail} />
-          {/* <CardDetail description={comic.description} /> */}
-          <BtnCard />
-        </CardContent>
-      </Card>
+        <Grid item>
+          <Card elevation={3} className={classes.card}>
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <CardTitle title={comic.title} />
+              <CardImg imageSource={comic.thumbnail} />
+              {/* <CardDetail description={comic.description} /> */}
+              <BtnCard />
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
     </Box>
   );
-}
+};

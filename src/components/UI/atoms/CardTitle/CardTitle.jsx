@@ -6,7 +6,6 @@ export const CardTitle = ({title}) => {
     <>
       <span
         style={{
-          backgroundColor: '#ffff00',
           maxWidth: '100%',
           display: 'inline-block',
           whiteSpace: 'nowrap',

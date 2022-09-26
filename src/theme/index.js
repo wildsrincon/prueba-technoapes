@@ -14,8 +14,8 @@ export default createTheme({
     primary: {
       main: '#202020',
     },
-    green: {
-      button: '#f0141e',
+    secondary: {
+      main: '#f0141e',
     },
     gray: {
       main: '#858585',

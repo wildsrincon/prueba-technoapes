@@ -9,7 +9,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AppRouter />
+        <AppRouter sx={{ backgroundColor: 'red' }} />
       </ThemeProvider>
     </>
   );
