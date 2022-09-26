@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import getComicInfo from '../../../../api/comicData';
-import params from '../../../../api/client/paramConfig';
+import getComicInfo from '../../../../core/api/comicData';
+import params from '../../../../core/client/paramConfig';
 import AppPagination from '../../organisms/Pagination/AppPagination';
 import { CardComic } from '../../molecules/Card/CardComic';
+import { useSelector } from 'react-redux';
 
 // Imports MUI
-import { Box, Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -17,29 +18,17 @@ const useStyles = makeStyles({
 
 export const CardList = () => {
   const classes = useStyles();
-  const [dataComic, setDataComic] = useState([]);
-  const [page, setPage] = useState(0);
-  // const [totalRecords, setTotalRecords] = useState(0);
-  // const [activePage, setActivepage] = useState(0);
-
-  // const handleChangePage = (e) => {
-  //   setActivepage(e.page);
-  //   console.log(activePage);
-  // };
-
-  useEffect(() => {
-    getComicInfo('comics', params)
-      .then(({ data }) => {
-        console.log(data.results);
-        setDataComic(data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const { comics } = useSelector((comics) => comics);
 
   return (
     <>
+      <Typography
+        variant="h5"
+        color="#fff"
+        sx={{ marginLeft: '150px', marginTop: 5 }}
+      >
+        Comic Marvel List
+      </Typography>
       <Box
         sx={{
           flexGrow: 1,
@@ -49,13 +38,12 @@ export const CardList = () => {
           marginBottom: '50px',
         }}
       >
-        {dataComic.map((comic, index) => {
-          return (
+        {comics.results &&
+          comics.results.map((comic, index) => (
             <div key={`key-${index}`}>
               <CardComic comic={comic} />
             </div>
-          );
-        })}
+          ))}
       </Box>
       <AppPagination />
     </>

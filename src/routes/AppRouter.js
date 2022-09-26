@@ -5,8 +5,8 @@ import { Box } from '@mui/material';
 import { HomePage, ComicDetail, Four0Four } from '../components/pages';
 import { makeStyles } from '@mui/styles';
 import Loader from '../components/helper/Loader';
-import getComicInfo from '../api/comicData';
-import params from '../api/client/paramConfig';
+import getComicInfo from '../core/api/comicData';
+import params from '../core/client/paramConfig';
 
 const useStyles = makeStyles((theme) => ({
   loader: {

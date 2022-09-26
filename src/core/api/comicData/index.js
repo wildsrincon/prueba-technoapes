@@ -1,4 +1,4 @@
-import httpRequest from '../client';
+import httpRequest from '../../client';
 
 const getComicInfo = async (value, params = '') => {
   const response = await httpRequest.get(value, {

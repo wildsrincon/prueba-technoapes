@@ -74,7 +74,7 @@ const HideOnScroll = ({ children, window }) => {
 };
 
 const pages = [
-  { name: 'Quotations', path: '/myquotes' },
+  { name: 'Comics', path: '/' },
   { name: 'Invoices', path: '/myinvoices' },
   { name: 'Expenses', path: '/myexpenses' },
 ];
@@ -109,23 +109,15 @@ export const HeaderBar = (props) => {
               </Link>
             </Box>
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <ButtonGroup>
-                {pages.map((nav, index) => (
-                  <Link
-                    to={nav.path}
-                    key={nav.name}
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <Button
-                      className={classes.navBtn}
-                      sx={{ textDecoration: 'none' }}
-                      variant="text"
-                    >
-                      {nav.name}
-                    </Button>
-                  </Link>
-                ))}
-              </ButtonGroup>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <Button
+                  className={classes.navBtn}
+                  sx={{ textDecoration: 'none', color: 'white' }}
+                  variant="text"
+                >
+                  Comics
+                </Button>
+              </Link>
               <Box
                 sx={{
                   display: 'flex',
@@ -143,27 +135,6 @@ export const HeaderBar = (props) => {
               >
                 <Divider orientation="vertical" variant="middle" flexItem />
               </Box>
-              <Link
-                to="/login"
-                style={{
-                  textDecoration: 'none',
-                  marginLeft: 'auto',
-                  marginRight: '.5rem',
-                }}
-              >
-                <Button
-                  className={classes.navBtn}
-                  variant="text"
-                  startIcon={<PersonIcon />}
-                >
-                  Login
-                </Button>
-              </Link>
-              <Link to="/register" sx={{ textDecoration: 'none' }}>
-                <Button color="primary" variant="contained" disableElevation>
-                  Sign Up
-                </Button>
-              </Link>
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
               <IconButton onClick={toggleDrawer}>
@@ -181,8 +152,8 @@ export const HeaderBar = (props) => {
         anchor="right"
       >
         <Box>
-          <IconButton onClick={toggleDrawer} color="primary">
-            <ChevronRightIcon />
+          <IconButton onClick={toggleDrawer}>
+            <ChevronRightIcon sx={{ color: 'white' }} />
           </IconButton>
         </Box>
         <Divider />
